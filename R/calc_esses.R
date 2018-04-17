@@ -61,12 +61,7 @@ calc_esses <- function(
   else {
     library(doParallel)
     registerDoParallel(cores=cores)
-    foreach (i=1:length(seq_along(traces))) %dopar% {
-      trace <- as.numeric(t(traces[i]))
-      esses[i] <- tracerer::calc_ess(
-        trace, sample_interval = sample_interval
-      )
-    }
+    esses <- foreach (i=1:length(seq_along(traces))) %dopar% {tracerer::calc_ess(as.numeric(t(traces[i])), sample_interval = sample_interval)}
   }
 
   df <- traces[1, ]
