@@ -11,6 +11,8 @@ calc_esses(traces, sample_interval)
 
 \item{sample_interval}{the interval in timesteps between samples}
 }
+\item{cores}{the number of cores you would like to use to process esses - can only be 1 if operating system is Windows}
+}
 \value{
 the effective sample sizes
 }
@@ -31,7 +33,8 @@ Calculates the Effective Sample Sizes from a parsed BEAST2 log file
   # Calculate the effective sample sizes of all parameter estimates
   esses <- calc_esses(
     estimates,
-    sample_interval = 1000
+    sample_interval = 1000,
+    cores = 70
   )
 
   expected <- c(10, 10, 10, 10, 7, 10, 9, 6)
