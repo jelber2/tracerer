@@ -17,7 +17,8 @@
 #'   # Calculate the effective sample sizes of all parameter estimates
 #'   esses <- calc_esses(
 #'     estimates,
-#'     sample_interval = 1000
+#'     sample_interval = 1000,
+#'     cores = 70
 #'   )
 #'
 #'   expected <- c(10, 10, 10, 10, 7, 10, 9, 6)
